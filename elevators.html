@@ -484,6 +484,9 @@
                     the text, or change the background color/opacity.
                 </p>
             </div>
+            <div class="step" id="step-four" data-scrollama-index="2">
+                <p>stepfour</p>
+            </div>
         </div>
     </section>
     <div class="content">
@@ -522,6 +525,7 @@
             // annotation: #layer1, #text-1, #path-2, #text-2
             d3.select("#layer1").classed('hidden', true)
             d3.select("#g-ai0-1").classed('hidden', true)
+            d3.select("#g-ai0-2").classed('hidden', true)
             d3.select("#layer2").classed('hidden', true)
             d3.select("#layer3").classed('hidden', true)
             d3.select("#layer4").classed('hidden', true)
@@ -545,8 +549,8 @@
             // do changes for step one
             d3.select("#layer1").classed('hidden', false)
             d3.select(".g-layer1").classed('hidden', false)
-            d3.select("#path-2").classed('hidden', false)
-            d3.select("#text-2").classed('hidden', false)
+            //d3.select("#path-2").classed('hidden', false)
+            // d3.select("#text-2").classed('hidden', false)
         })
 
         d3.select("#step-two").on('stepin', function (e) {
@@ -556,13 +560,26 @@
 
             // do changes for step two
             console.log("Got to step two")
-            d3.selectAll("[data-name='africa'] path").style('stroke', 'black')
+            // d3.selectAll("[data-name='africa'] path").style('stroke', 'black')
+            d3.select("#layer2").classed('hidden', false)
+            // d3.select(".g-layer1").classed('hidden', false)
         })
 
         d3.select("#step-three").on('stepin', function (e) {
             // undo changes from step two
-            d3.selectAll("[data-name='africa'] path").style('stroke', 'none')
+            // d3.selectAll("[data-name='africa'] path").style('stroke', 'none')
+            d3.select("#layer2").classed('hidden', true)
+            d3.select("#layer3").classed('hidden', false)
         })
+
+        d3.select("#step-four").on('stepin', function (e) {
+            // undo changes from step two
+            // d3.selectAll("[data-name='africa'] path").style('stroke', 'none')
+            d3.select("#layer3").classed('hidden', true)
+            d3.select("#layer4").classed('hidden', false)
+            d3.select(".g-pstyle0").classed('hidden', false)
+        })
+
 
 
     </script>
