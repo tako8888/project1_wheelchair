@@ -45,4 +45,4 @@ Subway data
 
 
 # A section about things you tried to do or wanted to do but did not have the skills/time (but if you have more time you might do)
-*  Ranking in areas should be done with density of those who need elevators, not ratio for population in each area. I couldn't redo this because of limited time.
+*  Ranking in areas should be done with density of those who need elevators etc., not with ratio for population in each area. I couldn't redo this because of the limitation of time.
