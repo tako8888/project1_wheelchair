@@ -12,7 +12,7 @@ var config = {
     auto: false,
     title: 'Mind the Gap',
     subtitle: 'Inside Neglected Areas in the NYC Subway',
-    byline: 'By a YAMAKI, Takayuki',
+    byline: 'By YAMAKI, Takayuki',
     footer: 'Source: source citations, etc. <br> Created using <a href="https://github.com/mapbox/storytelling" target="_blank">Mapbox Storytelling</a> template.',
     chapters: [
         {
@@ -389,7 +389,7 @@ var config = {
             hidden: false,
             title: '',
             image: 'change_artboard.png',
-            // add flourish image
+            alt: 'Higher Poverty in Neglected Areas of Manhattan. Half of "neglected areas" are where more than 20% of people live below the poverty line',
             description: "High demand deprived area for elevators is much large, compared to area with elevators. **it's n times large, n is following 16%** Low demand area for elevators is much large in ELEVATOR area, compared to DEPRIVED area with elevators. it's n times large, n is following **29%**",
             location: {
                 center: [-74.04, 40.74],
@@ -426,7 +426,6 @@ var config = {
             alignment: 'left',
             hidden: false,
             title: 'Even Columbia University"',
-            // add flourish image
             description: "High demand deprived area for elevators is much large, compared to area with elevators. **it's n times large, n is following 16%** Low demand area for elevators is much large in ELEVATOR area, compared to DEPRIVED area with elevators. it's n times large, n is following **29%**",
             location: {
                 center: [-73.96221, 40.80737],
