@@ -1,0 +1,4 @@
+ Variable , areaTotalSum , areaNormalSum , areaElevatorSum , areaDeprivedSum 
+ manhattan_povertyHighArea ,"162,478,119","137,121,669","79,862,444","60,491,277"
+ manhattan_povertyNonArea ,"303,971,748","277,653,587","218,603,282","59,077,632"
+ manhattan_povertyLowArea ,"74,192,885","65,076,678","56,788,615","8,295,967"

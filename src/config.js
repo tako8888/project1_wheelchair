@@ -11,96 +11,148 @@ var config = {
     use3dTerrain: false, //set true for enabling 3D maps.
     auto: false,
     title: 'Mind the Gap',
-    subtitle: 'Hidden Disparity in the NYC Subway',
+    subtitle: 'Inside Neglected Areas in the NYC Subway',
     byline: 'By a YAMAKI, Takayuki',
     footer: 'Source: source citations, etc. <br> Created using <a href="https://github.com/mapbox/storytelling" target="_blank">Mapbox Storytelling</a> template.',
     chapters: [
         {
-            id: 'slug-style-id',
-            alignment: 'left',
+            id: 'first-chapter',
+            alignment: 'fully',
             hidden: false,
-            title: 'Chapter 1',
+            title: 'less subway stations with elevators',
             // image: 'sorry.png',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+            description: 'If you need elevators, you will face difficulties in the NYC subway station',
             location: {
                 center: [-74.04, 40.74],
                 zoom: 10,
                 pitch: 0,
                 bearing: 0
-            },
-            mapAnimation: 'flyTo',
-            rotateAnimation: true,
-            callback: '',
-            onChapterEnter: [
-                // {
-                //     layer: 'layer-name',
-                //     opacity: 1,
-                //     duration: 5000
-                // }
-            ],
-            onChapterExit: [
-                // {
-                //     layer: 'layer-name',
-                //     opacity: 0
-                // }
-            ]
-        },
-        {
-            id: 'second-identifier',
-            alignment: 'right',
-            hidden: false,
-            title: 'Second Title',
-            image: './path/to/image/source.png',
-            description: 'Copy these sections to add to your story.',
-            location: {
-                center: [-74.04, 40.74],
-                zoom: 10,
-                pitch: 0,
-                bearing: 0
-
-                // flyTo additional controls-
-                // These options control the flight curve, making it move
-                // slowly and zoom out almost completely before starting
-                // to pan.
-                //speed: 2, // make the flying slow
-                //curve: 1, // change the speed at which it zooms out
             },
             mapAnimation: 'flyTo',
             rotateAnimation: false,
             callback: '',
-            onChapterEnter: [],
-            onChapterExit: []
+            onChapterEnter: [
+                {
+                    layer: 'mapbox-satellite',
+                    opacity: 1,
+                    duration: 500
+                },
+                {
+                    layer: 'subwayStations',
+                    opacity: 0,
+                    duration: 500
+                },
+                {
+                    layer: 'boroughsMB',
+                    opacity: 0,
+                    duration: 500
+                }  ,                              
+                {
+                    layer: 'color_layer1_conditional',
+                    opacity: 0,
+                    duration: 4000
+                    
+                } ,
+                {
+                    layer: 'color_layer2_conditional',
+                    opacity: 0,
+                    duration: 4000
+                    
+                } ,
+                {
+                    layer: 'clip_mask',
+                    opacity: 1,
+                    duration: 4000
+                    
+                } 
+            ],
+            onChapterExit: [
+                {
+                    layer: 'mapbox-satellite',
+                    opacity: 0,
+                    duration: 1500
+                },
+                {
+                    layer: 'clip_mask',
+                    opacity: 0,
+                    duration: 4000
+                    
+                } 
+            ]
+        },
+        {
+            id: 'second-identifier',
+            alignment: 'left',
+            hidden: false,
+            title: 'This is New York City',
+            // image: './path/to/image/source.png',
+            description: 'There are XX subway stations in 4 boroughs',
+            location: {
+                center: [-74.04, 40.74],
+                zoom: 10,
+                pitch: 0,
+                bearing: 0
+            },
+            mapAnimation: 'flyTo',
+            rotateAnimation: false,
+            callback: '',
+            onChapterEnter: [
+                {
+                    layer: 'subwayStations',
+                    opacity: 1,
+                    duration: 500
+                },
+                {
+                    layer: 'boroughsMB',
+                    opacity: 1,
+                    duration: 500
+                }
+            ],
+            onChapterExit: [
+
+            
+            ]
         },
         {
             id: 'third-identifier',
             alignment: 'left',
             hidden: false,
-            title: 'Chapter 3',
-            image: './path/to/image/source.png',
+            title: 'Only 1 of them are euqipped with elevators',
+            // image: './path/to/image/source.png',
             description: 'Copy these sections to add to your story.',
             location: {
                 center: [-74.04, 40.74],
                 zoom: 10,
                 pitch: 0,
                 bearing: 0
-
             },
             mapAnimation: 'flyTo',
             rotateAnimation: false,
             callback: '',
-            onChapterEnter: [],
-            onChapterExit: []
+            onChapterEnter: [
+                {
+                    layer: 'subwayelevators',
+                    opacity: 1,
+                    duration: 500
+                }
+            ],
+            onChapterExit: [
+                // {
+                //     layer: 'subwayelevators',
+                //     opacity: 0,
+                //     duration: 1500
+                // }
+            ]
         },
         {
             id: 'fourth-chapter',
             alignment: 'fully',
             hidden: false,
-            title: 'Third Title',
-            image: './path/to/image/source.png',
-            description: 'Copy these sections to add to your story.',
+            title: 'How large are the areas where people face difficulties?',
+            description: "Let's Visualize it!",
             location: {
-                center: [-58.54195, -34.71600],
-                zoom: 4,
+                center: [-74.04, 40.74],
+                zoom: 10,
                 pitch: 0,
                 bearing: 0
             },
@@ -109,6 +161,312 @@ var config = {
             callback: '',
             onChapterEnter: [],
             onChapterExit: []
+        // }
+        },
+        {
+            id: 'fifth-chapter',
+            alignment: 'left',
+            hidden: false,
+            title: 'There are 240 square km2 people can acess subway 10 min walk',
+            description: "",
+            location: {
+                center: [-74.04, 40.74],
+                zoom: 10,
+                pitch: 0,
+                bearing: 0
+            },
+            mapAnimation: 'flyTo',
+            rotateAnimation: false,
+            callback: '',
+            onChapterEnter: [
+                {
+                    layer: 'neglected_area',
+                    opacity: 1,
+                    duration: 500
+                },
+                {
+                    layer: 'elevator_walk',
+                    opacity: 1,
+                    duration: 500
+                }
+            ],
+
+            onChapterExit: [
+
+            ],
+            onChapterExit: []
+        },        
+        {
+            id: 'sixth-chapter',
+            alignment: 'left',
+            hidden: false,
+            title: 'That will shrink with elevators, 300kim.',
+            description: "",
+            location: {
+                center: [-74.04, 40.74],
+                zoom: 10,
+                pitch: 0,
+                bearing: 0
+            },
+            mapAnimation: 'flyTo',
+            rotateAnimation: false,
+            callback: '',
+            onChapterEnter: [
+                {
+                    layer: 'neglected_area',
+                    opacity: 0,
+                    duration: 500
+                },
+                {
+                    layer: 'elevator_walk',
+                    opacity: 1,
+                    duration: 500
+                }            
+            ],
+            onChapterExit: [
+                {
+                    layer: 'subwayStations',
+                    opacity: 0,
+                    duration: 1500
+                },
+                {
+                    layer: 'subwayelevators',
+                    opacity: 0,
+                    duration: 1500
+                }
+
+            ],
+        },
+        {
+            id: 'seventh-chapter',
+            alignment: 'left',
+            hidden: false,
+            title: 'What is happeneing these "neglected area, where people face difficulties only if they need elevators"?',
+            description: "",
+            location: {
+                center: [-74.04, 40.74],
+                zoom: 10,
+                pitch: 0,
+                bearing: 0
+            },
+            mapAnimation: 'flyTo',
+            rotateAnimation: false,
+            callback: '',
+            onChapterEnter: [
+                {
+                    layer: 'neglected_area',
+                    opacity: 1,
+                    duration: 500
+                },
+                {
+                    layer: 'elevator_walk',
+                    opacity: 0,
+                    duration: 500
+                },            
+                {
+                    layer: 'clip_mask',
+                    opacity: 1,
+                    duration: 500
+                }            
+                        ],
+            onChapterExit: []
+        },
+
+        {
+            id: 'eith-chapter',
+            alignment: 'left',
+            hidden: false,
+            title: 'This map shows where people with ambulatory ratio is high',
+            description: "Red is 20% quantile. Green is 20% quantile",
+            location: {
+                center: [-74.04, 40.74],
+                zoom: 10,
+                pitch: 0,
+                bearing: 0
+            },
+            mapAnimation: 'flyTo',
+            rotateAnimation: false,
+            callback: '',
+            onChapterEnter: [
+                {
+                    layer: 'neglected_area',
+                    opacity: 0,
+                    duration: 500
+                },
+                {
+                    layer: 'elevator_walk',
+                    opacity: 0,
+                    duration: 500
+                },            
+                {
+                    layer: 'clip_mask',
+                    opacity: 0,
+                    duration: 500
+                },
+                {
+                    layer: 'color_layer1_conditional',
+                    opacity: 1,
+                    duration: 500
+                    
+                } 
+                        ],
+            onChapterExit: []
+        },
+
+        {
+            id: 'nineth-chapter',
+            alignment: 'left',
+            hidden: false,
+            title: 'Broad areas are inside "neglected area"',
+            // add flourish image
+            description: "High demand deprived area for elevators is much large, compared to area with elevators. **it's n times large, n is following 16%** Low demand area for elevators is much large in ELEVATOR area, compared to DEPRIVED area with elevators. it's n times large, n is following **29%**",
+            location: {
+                center: [-74.04, 40.74],
+                zoom: 10,
+                pitch: 0,
+                bearing: 0
+            },
+            mapAnimation: 'flyTo',
+            rotateAnimation: false,
+            callback: '',
+            onChapterEnter: [
+ 
+                {
+                    layer: 'clip_mask',
+                    opacity: 1,
+                    duration: 500
+                }            
+                        ],
+            onChapterExit: [
+                {
+                    layer: 'clip_mask',
+                    opacity: 0,
+                    duration: 500
+                },
+                {
+                    layer: 'color_layer1_conditional',
+                    opacity: 0,
+                    duration: 500
+                    
+                }                             
+            ]
         }
+
+        ,
+
+        {
+            id: 'tenth-chapter',
+            alignment: 'left',
+            hidden: false,
+            title: 'This map shows where people with ambulatory ratio is high',
+            description: "Red is 20% quantile. Green is 20% quantile",
+            location: {
+                center: [-74.04, 40.74],
+                zoom: 10,
+                pitch: 0,
+                bearing: 0
+            },
+            mapAnimation: 'flyTo',
+            rotateAnimation: false,
+            callback: '',
+            onChapterEnter: [
+
+                {
+                    layer: 'color_layer2_conditional',
+                    opacity: 1,
+                    duration: 500
+                    
+                } 
+                        ],
+                    
+                        
+            onChapterExit: []
+        },
+
+        {
+            id: 'eleventh-chapter',
+            alignment: 'left',
+            hidden: false,
+            title: '',
+            image: 'change_artboard.png',
+            // add flourish image
+            description: "High demand deprived area for elevators is much large, compared to area with elevators. **it's n times large, n is following 16%** Low demand area for elevators is much large in ELEVATOR area, compared to DEPRIVED area with elevators. it's n times large, n is following **29%**",
+            location: {
+                center: [-74.04, 40.74],
+                zoom: 10,
+                pitch: 0,
+                bearing: 0
+            },
+            mapAnimation: 'flyTo',
+            rotateAnimation: false,
+            callback: '',
+            onChapterEnter: [
+ 
+                {
+                    layer: 'clip_mask',
+                    opacity: 1,
+                    duration: 500
+                },
+                {
+                    layer: 'mapbox-satellite',
+                    opacity: 0,
+                    duration: 500
+                }            
+                        ],
+            onChapterExit: [
+            ]
+            
+        }
+
+        ,
+
+        {
+            id: 'twelveth-chapter',
+            showMarkers: true,
+            alignment: 'left',
+            hidden: false,
+            title: 'Even Columbia University"',
+            // add flourish image
+            description: "High demand deprived area for elevators is much large, compared to area with elevators. **it's n times large, n is following 16%** Low demand area for elevators is much large in ELEVATOR area, compared to DEPRIVED area with elevators. it's n times large, n is following **29%**",
+            location: {
+                center: [-73.96221, 40.80737],
+                zoom: 16.01,
+                pitch: 54.50,
+                bearing: 28
+            },
+            mapAnimation: 'flyTo',
+            rotateAnimation: true,
+            callback: '',
+            onChapterEnter: [
+                {
+                    layer: 'color_layer2_conditional',
+                    opacity: 0,
+                    duration: 3000
+                    
+                },                 
+ 
+                {
+                    layer: 'mapbox-satellite',
+                    opacity: 1,
+                    duration: 1000
+                }            ,
+                {
+                    layer: 'subwayStations',
+                    opacity: 1,
+                    duration: 1500
+                },
+                {
+                    layer: 'subwayelevators',
+                    opacity: 1,
+                    duration: 1500
+                }
+                        ],
+            onChapterExit: []
+        }
+
+
+
+
+
     ]
 };
